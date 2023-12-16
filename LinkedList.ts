@@ -56,6 +56,19 @@ export default class LinkedList {
       return headCopy;
     }
   }
+
+  at(index: number) {
+    if (index < 0) throw new Error("Negative index not allowed");
+    if (index === 0) return this.head;
+    else {
+      let headCopy = this.head;
+      for (let i = 0; i < index; i++) {
+        headCopy = headCopy?.next as Node;
+        if (headCopy === null) throw new Error("null Node at given index");
+      }
+      return headCopy;
+    }
+  }
 }
 
 // const ll = new LinkedList();
@@ -63,4 +76,4 @@ export default class LinkedList {
 // ll.prepend(4);
 // ll.append(3);
 // ll.append(5);
-// console.log(ll.tail());
+// console.log(ll.at(4));
