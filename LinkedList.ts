@@ -84,13 +84,26 @@ export default class LinkedList {
       prev.next = null;
     }
   }
+
+  contains(value: number) {
+    if (this.head === null) return false;
+    else {
+      let headCopy = this.head;
+      while (headCopy !== null) {
+        if (headCopy.value === value) return true;
+        headCopy = headCopy.next as Node;
+      }
+    }
+    return false;
+  }
 }
 
 // const ll = new LinkedList();
 // ll.append(2);
 // ll.prepend(4);
 // ll.append(3);
-// ll.pop();
-// ll.pop();
 
-// console.log(ll);
+// console.log(ll.contains(3));
+// console.log(ll.contains(2));
+// console.log(ll.contains(4));
+// console.log(ll.contains(8));
