@@ -32,10 +32,23 @@ export default class LinkedList {
     insertedHead.next = this.head;
     this.head = insertedHead;
   }
+
+  size() {
+    let size = 0;
+    if (this.head === null) return size;
+    else {
+      let headCopy = this.head;
+      while (headCopy !== null) {
+        headCopy = headCopy.next as Node;
+        size++;
+      }
+      return size;
+    }
+  }
 }
 // const ll = new LinkedList();
 // ll.append(2);
 // ll.append(3);
 // ll.append(5);
 // ll.prepend(4);
-// console.log(ll.head?.next);
+// console.log(ll.size());
