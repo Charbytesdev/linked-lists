@@ -45,10 +45,22 @@ export default class LinkedList {
       return size;
     }
   }
+
+  tail() {
+    if (this.head === null) return null;
+    else {
+      let headCopy = this.head;
+      while (headCopy.next !== null) {
+        headCopy = headCopy.next;
+      }
+      return headCopy;
+    }
+  }
 }
+
 // const ll = new LinkedList();
 // ll.append(2);
+// ll.prepend(4);
 // ll.append(3);
 // ll.append(5);
-// ll.prepend(4);
-// console.log(ll.size());
+// console.log(ll.tail());
