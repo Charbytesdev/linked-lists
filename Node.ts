@@ -2,7 +2,7 @@ export default class Node {
   _value: number | null = null;
   _next: Node | null = null;
 
-  constructor(value: number, next: Node | null) {
+  constructor(value: number | null = null, next: Node | null = null) {
     this._value = value;
     this._next = next;
   }
