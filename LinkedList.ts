@@ -10,7 +10,7 @@ export default class LinkedList {
     return this._head;
   }
 
-  set head(head: Node) {
+  set head(head: Node | null) {
     this._head = head;
   }
 
@@ -69,11 +69,28 @@ export default class LinkedList {
       return headCopy;
     }
   }
+
+  pop() {
+    if (this.head === null) return;
+    else if (this.head?.next === null) {
+      this.head = null;
+    } else {
+      let headCopy = this.head;
+      let prev = headCopy;
+      while (headCopy.next !== null) {
+        prev = headCopy;
+        headCopy = headCopy.next;
+      }
+      prev.next = null;
+    }
+  }
 }
 
 // const ll = new LinkedList();
 // ll.append(2);
 // ll.prepend(4);
 // ll.append(3);
-// ll.append(5);
-// console.log(ll.at(4));
+// ll.pop();
+// ll.pop();
+
+// console.log(ll);
