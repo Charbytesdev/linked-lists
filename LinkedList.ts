@@ -110,14 +110,21 @@ export default class LinkedList {
     }
     return null;
   }
+
+  toString() {
+    if (this.head === null) return "null";
+    let resString = "";
+    let headCopy = this.head;
+    while (headCopy !== null) {
+      resString += headCopy.value + " -> ";
+      headCopy = headCopy.next as Node;
+    }
+    return resString + "null";
+  }
 }
 
-const ll = new LinkedList();
-ll.append(2);
-ll.prepend(4);
-ll.append(3);
-
-console.log(ll.find(3));
-console.log(ll.find(2));
-console.log(ll.find(4));
-console.log(ll.find(8));
+// const ll = new LinkedList();
+// ll.append(2);
+// ll.prepend(4);
+// ll.append(3);
+// console.log(ll.toString());
