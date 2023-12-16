@@ -121,10 +121,32 @@ export default class LinkedList {
     }
     return resString + "null";
   }
+
+  insertAt(value: number, index: number) {
+    let insertedNode = new Node(value);
+
+    if (this.head === null) this.head = insertedNode;
+
+    let size = this.size();
+    if (index >= size) this.append(value);
+    else if (index <= 0) this.prepend(value);
+    else {
+      let headCopy = this.head;
+      let prev = headCopy;
+      for (let i = 0; i < index; i++) {
+        prev = headCopy;
+        headCopy = headCopy.next as Node;
+      }
+      prev.next = insertedNode;
+      insertedNode.next = headCopy;
+    }
+  }
 }
 
 // const ll = new LinkedList();
 // ll.append(2);
 // ll.prepend(4);
-// ll.append(3);
+// ll.append(2);
+// ll.append(8);
+// ll.insertAt(3, 3);
 // console.log(ll.toString());
