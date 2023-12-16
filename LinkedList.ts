@@ -26,12 +26,16 @@ export default class LinkedList {
       headCopy.next = insertedNode;
     }
   }
-}
 
+  prepend(value: number) {
+    const insertedHead = new Node(value, null);
+    insertedHead.next = this.head;
+    this.head = insertedHead;
+  }
+}
 // const ll = new LinkedList();
 // ll.append(2);
 // ll.append(3);
 // ll.append(5);
-// ll.append(5);
-
-// console.log((ll.head as Node).next);
+// ll.prepend(4);
+// console.log(ll.head?.next);
